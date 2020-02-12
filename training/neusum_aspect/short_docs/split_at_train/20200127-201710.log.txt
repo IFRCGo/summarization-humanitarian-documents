@@ -1,0 +1,800 @@
+2020-01-27 20:17:10,131 [INFO :__main__] My PID is 566
+2020-01-27 20:17:10,131 [INFO :__main__] Namespace(att_vec_size=256, batch_size=64, beam_size=1, brnn_merge='concat', cuda_seed=12345, curriculum=0, dec_dropout=0.0, dec_init='simple', dec_rnn_size=256, dev_input_src='/idiap/temp/jbello/data/validation/neusum_aspect/short_docs/val.src.txt', dev_ref='/idiap/temp/jbello/data/validation/neusum_aspect/short_docs/val.tgt.txt', doc_brnn=True, doc_dropout=0.2, doc_enc_size=256, dump_epoch_checkpoint=False, epochs=100, eval_per_batch=1000, extra_shuffle=True, force_max_len=True, freeze_word_vecs_enc=True, gpus=[0], halve_lr_bad_count=100000, input_feed=1, layers=1, learning_rate=0.001, learning_rate_decay=0.5, log_home='/idiap/temp/jbello/training/neusum_aspect/short_docs/', log_interval=100, max_decode_step=3, max_doc_len=20, max_generator_batches=32, max_grad_norm=5, max_sent_length=100, max_weight_value=15, maxout_pool_size=2, norm_lambda=20, online_process_data=True, optim='adam', param_init=0.1, pre_word_vecs_dec=None, pre_word_vecs_enc='/idiap/temp/jbello/data/training/neusum_aspect/glove.100k.50d.txt', process_shuffle=False, save_path='/idiap/temp/jbello/training/neusum_aspect/short_docs/', seed=12345, self_att_size=512, sent_brnn=True, sent_dropout=0.3, sent_enc_size=256, src_vocab='/idiap/temp/jbello/data/training/neusum_aspect/vocab.txt.100k', start_decay_at=8, start_epoch=1, start_eval_batch=1000, tgt_vocab='/idiap/temp/jbello/data/training/neusum_aspect/vocab.txt.100k', train_oracle='/idiap/temp/jbello/data/training/neusum_aspect/short_docs/train.rouge_bigram_F1.oracle.regGain', train_src='/idiap/temp/jbello/data/training/neusum_aspect/short_docs/train.src.txt', train_src_rouge='/idiap/temp/jbello/data/training/neusum_aspect/short_docs/train.rouge_bigram_F1.oracle.regGain', train_tgt='/idiap/temp/jbello/data/training/neusum_aspect/short_docs/train.tgt.txt', use_self_att=False, word_vec_size=50)
+2020-01-27 20:17:10,191 [INFO :__main__] My seed is 12345
+2020-01-27 20:17:15,488 [INFO :__main__] My cuda seed is 12345
+2020-01-27 20:17:15,511 [INFO :onlinePreprocess] Reading source vocabulary from '/idiap/temp/jbello/data/training/neusum_aspect/vocab.txt.100k'...
+2020-01-27 20:17:15,776 [INFO :onlinePreprocess] Loaded 100000 source words
+2020-01-27 20:17:15,776 [INFO :onlinePreprocess] Reading target vocabulary from '/idiap/temp/jbello/data/training/neusum_aspect/vocab.txt.100k'...
+2020-01-27 20:17:15,988 [INFO :onlinePreprocess] Loaded 100000 target words
+2020-01-27 20:17:15,989 [INFO :onlinePreprocess] Preparing training ...
+2020-01-27 20:17:15,989 [INFO :onlinePreprocess] Processing /idiap/temp/jbello/data/training/neusum_aspect/short_docs/train.src.txt & /idiap/temp/jbello/data/training/neusum_aspect/short_docs/train.tgt.txt ...
+2020-01-27 20:17:15,993 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1)
+2020-01-27 20:17:16,002 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7)
+2020-01-27 20:17:16,010 [INFO :onlinePreprocess] WARNING: ignoring an empty line (16)
+2020-01-27 20:17:16,012 [INFO :onlinePreprocess] WARNING: ignoring an empty line (18)
+2020-01-27 20:17:16,037 [INFO :onlinePreprocess] WARNING: ignoring an empty line (52)
+2020-01-27 20:17:16,075 [INFO :onlinePreprocess] WARNING: ignoring an empty line (109)
+2020-01-27 20:17:16,080 [INFO :onlinePreprocess] WARNING: ignoring an empty line (118)
+2020-01-27 20:17:16,091 [INFO :onlinePreprocess] WARNING: ignoring an empty line (134)
+2020-01-27 20:17:16,099 [INFO :onlinePreprocess] WARNING: ignoring an empty line (147)
+2020-01-27 20:17:16,100 [INFO :onlinePreprocess] WARNING: ignoring an empty line (149)
+2020-01-27 20:17:16,132 [INFO :onlinePreprocess] WARNING: ignoring an empty line (195)
+2020-01-27 20:17:16,147 [INFO :onlinePreprocess] WARNING: ignoring an empty line (219)
+2020-01-27 20:17:16,191 [INFO :onlinePreprocess] WARNING: ignoring an empty line (292)
+2020-01-27 20:17:16,217 [INFO :onlinePreprocess] WARNING: ignoring an empty line (327)
+2020-01-27 20:17:16,223 [INFO :onlinePreprocess] WARNING: ignoring an empty line (336)
+2020-01-27 20:17:16,223 [INFO :onlinePreprocess] WARNING: ignoring an empty line (337)
+2020-01-27 20:17:16,238 [INFO :onlinePreprocess] WARNING: ignoring an empty line (361)
+2020-01-27 20:17:16,244 [INFO :onlinePreprocess] WARNING: ignoring an empty line (369)
+2020-01-27 20:17:16,253 [INFO :onlinePreprocess] WARNING: ignoring an empty line (385)
+2020-01-27 20:17:16,293 [INFO :onlinePreprocess] WARNING: ignoring an empty line (448)
+2020-01-27 20:17:16,298 [INFO :onlinePreprocess] WARNING: ignoring an empty line (455)
+2020-01-27 20:17:16,349 [INFO :onlinePreprocess] WARNING: ignoring an empty line (498)
+2020-01-27 20:17:16,432 [INFO :onlinePreprocess] WARNING: ignoring an empty line (630)
+2020-01-27 20:17:16,436 [INFO :onlinePreprocess] WARNING: ignoring an empty line (634)
+2020-01-27 20:17:16,476 [INFO :onlinePreprocess] WARNING: ignoring an empty line (690)
+2020-01-27 20:17:16,545 [INFO :onlinePreprocess] WARNING: ignoring an empty line (785)
+2020-01-27 20:17:16,565 [INFO :onlinePreprocess] WARNING: ignoring an empty line (818)
+2020-01-27 20:17:16,589 [INFO :onlinePreprocess] WARNING: ignoring an empty line (856)
+2020-01-27 20:17:16,593 [INFO :onlinePreprocess] WARNING: ignoring an empty line (861)
+2020-01-27 20:17:16,602 [INFO :onlinePreprocess] WARNING: ignoring an empty line (876)
+2020-01-27 20:17:16,622 [INFO :onlinePreprocess] WARNING: ignoring an empty line (908)
+2020-01-27 20:17:16,685 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1002)
+2020-01-27 20:17:16,686 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1003)
+2020-01-27 20:17:16,695 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1016)
+2020-01-27 20:17:16,720 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1053)
+2020-01-27 20:17:16,726 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1063)
+2020-01-27 20:17:16,736 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1077)
+2020-01-27 20:17:16,741 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1085)
+2020-01-27 20:17:16,822 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1202)
+2020-01-27 20:17:16,830 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1212)
+2020-01-27 20:17:16,850 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1245)
+2020-01-27 20:17:16,894 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1307)
+2020-01-27 20:17:16,918 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1341)
+2020-01-27 20:17:16,926 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1354)
+2020-01-27 20:17:16,988 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1451)
+2020-01-27 20:17:17,018 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1500)
+2020-01-27 20:17:17,067 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1573)
+2020-01-27 20:17:17,079 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1593)
+2020-01-27 20:17:17,084 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1600)
+2020-01-27 20:17:17,092 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1609)
+2020-01-27 20:17:17,098 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1620)
+2020-01-27 20:17:17,112 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1643)
+2020-01-27 20:17:17,124 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1663)
+2020-01-27 20:17:17,163 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1720)
+2020-01-27 20:17:17,176 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1739)
+2020-01-27 20:17:17,193 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1769)
+2020-01-27 20:17:17,220 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1811)
+2020-01-27 20:17:17,225 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1819)
+2020-01-27 20:17:17,227 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1824)
+2020-01-27 20:17:17,329 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1972)
+2020-01-27 20:17:17,343 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1994)
+2020-01-27 20:17:17,345 [INFO :onlinePreprocess] WARNING: ignoring an empty line (1996)
+2020-01-27 20:17:17,349 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2004)
+2020-01-27 20:17:17,358 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2017)
+2020-01-27 20:17:17,363 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2025)
+2020-01-27 20:17:17,416 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2102)
+2020-01-27 20:17:17,420 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2106)
+2020-01-27 20:17:17,422 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2109)
+2020-01-27 20:17:17,433 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2126)
+2020-01-27 20:17:17,443 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2142)
+2020-01-27 20:17:17,475 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2192)
+2020-01-27 20:17:17,513 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2249)
+2020-01-27 20:17:17,528 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2271)
+2020-01-27 20:17:17,544 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2295)
+2020-01-27 20:17:17,609 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2400)
+2020-01-27 20:17:17,651 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2469)
+2020-01-27 20:17:17,757 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2635)
+2020-01-27 20:17:17,768 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2652)
+2020-01-27 20:17:17,771 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2657)
+2020-01-27 20:17:17,784 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2673)
+2020-01-27 20:17:17,788 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2680)
+2020-01-27 20:17:17,810 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2714)
+2020-01-27 20:17:17,821 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2730)
+2020-01-27 20:17:17,832 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2750)
+2020-01-27 20:17:17,841 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2763)
+2020-01-27 20:17:17,861 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2797)
+2020-01-27 20:17:17,874 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2815)
+2020-01-27 20:17:17,950 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2900)
+2020-01-27 20:17:17,956 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2908)
+2020-01-27 20:17:17,969 [INFO :onlinePreprocess] WARNING: ignoring an empty line (2918)
+2020-01-27 20:17:18,081 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3046)
+2020-01-27 20:17:18,115 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3093)
+2020-01-27 20:17:18,117 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3098)
+2020-01-27 20:17:18,125 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3106)
+2020-01-27 20:17:18,189 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3165)
+2020-01-27 20:17:18,197 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3177)
+2020-01-27 20:17:18,199 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3179)
+2020-01-27 20:17:18,268 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3289)
+2020-01-27 20:17:18,288 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3331)
+2020-01-27 20:17:18,296 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3342)
+2020-01-27 20:17:18,329 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3392)
+2020-01-27 20:17:18,346 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3418)
+2020-01-27 20:17:18,355 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3432)
+2020-01-27 20:17:18,439 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3555)
+2020-01-27 20:17:18,449 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3571)
+2020-01-27 20:17:18,451 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3575)
+2020-01-27 20:17:18,454 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3578)
+2020-01-27 20:17:18,587 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3780)
+2020-01-27 20:17:18,593 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3789)
+2020-01-27 20:17:18,603 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3801)
+2020-01-27 20:17:18,616 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3817)
+2020-01-27 20:17:18,645 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3861)
+2020-01-27 20:17:18,647 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3864)
+2020-01-27 20:17:18,653 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3873)
+2020-01-27 20:17:18,662 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3891)
+2020-01-27 20:17:18,676 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3912)
+2020-01-27 20:17:18,684 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3924)
+2020-01-27 20:17:18,695 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3942)
+2020-01-27 20:17:18,717 [INFO :onlinePreprocess] WARNING: ignoring an empty line (3976)
+2020-01-27 20:17:18,780 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4059)
+2020-01-27 20:17:18,852 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4139)
+2020-01-27 20:17:18,860 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4149)
+2020-01-27 20:17:18,870 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4159)
+2020-01-27 20:17:18,888 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4187)
+2020-01-27 20:17:18,922 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4242)
+2020-01-27 20:17:18,934 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4262)
+2020-01-27 20:17:18,948 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4287)
+2020-01-27 20:17:18,988 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4346)
+2020-01-27 20:17:19,000 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4365)
+2020-01-27 20:17:19,000 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4365)
+2020-01-27 20:17:19,009 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4380)
+2020-01-27 20:17:19,086 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4477)
+2020-01-27 20:17:19,128 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4512)
+2020-01-27 20:17:19,129 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4513)
+2020-01-27 20:17:19,131 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4514)
+2020-01-27 20:17:19,156 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4541)
+2020-01-27 20:17:19,189 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4578)
+2020-01-27 20:17:19,233 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4637)
+2020-01-27 20:17:19,238 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4646)
+2020-01-27 20:17:19,328 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4779)
+2020-01-27 20:17:19,355 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4818)
+2020-01-27 20:17:19,358 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4825)
+2020-01-27 20:17:19,362 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4832)
+2020-01-27 20:17:19,387 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4865)
+2020-01-27 20:17:19,413 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4908)
+2020-01-27 20:17:19,456 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4978)
+2020-01-27 20:17:19,459 [INFO :onlinePreprocess] WARNING: ignoring an empty line (4981)
+2020-01-27 20:17:19,526 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5085)
+2020-01-27 20:17:19,529 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5090)
+2020-01-27 20:17:19,547 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5116)
+2020-01-27 20:17:19,566 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5141)
+2020-01-27 20:17:19,577 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5158)
+2020-01-27 20:17:19,585 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5171)
+2020-01-27 20:17:19,602 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5199)
+2020-01-27 20:17:19,675 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5310)
+2020-01-27 20:17:19,680 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5317)
+2020-01-27 20:17:19,686 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5325)
+2020-01-27 20:17:19,746 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5353)
+2020-01-27 20:17:19,762 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5378)
+2020-01-27 20:17:19,780 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5403)
+2020-01-27 20:17:19,792 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5419)
+2020-01-27 20:17:19,794 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5421)
+2020-01-27 20:17:19,810 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5445)
+2020-01-27 20:17:19,827 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5471)
+2020-01-27 20:17:19,848 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5503)
+2020-01-27 20:17:19,867 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5534)
+2020-01-27 20:17:19,872 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5544)
+2020-01-27 20:17:19,888 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5569)
+2020-01-27 20:17:19,894 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5578)
+2020-01-27 20:17:19,920 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5623)
+2020-01-27 20:17:19,987 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5741)
+2020-01-27 20:17:20,000 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5763)
+2020-01-27 20:17:20,007 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5774)
+2020-01-27 20:17:20,084 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5841)
+2020-01-27 20:17:20,117 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5875)
+2020-01-27 20:17:20,165 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5934)
+2020-01-27 20:17:20,168 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5938)
+2020-01-27 20:17:20,169 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5939)
+2020-01-27 20:17:20,178 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5950)
+2020-01-27 20:17:20,204 [INFO :onlinePreprocess] WARNING: ignoring an empty line (5989)
+2020-01-27 20:17:20,258 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6056)
+2020-01-27 20:17:20,270 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6068)
+2020-01-27 20:17:20,301 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6102)
+2020-01-27 20:17:20,322 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6128)
+2020-01-27 20:17:20,340 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6146)
+2020-01-27 20:17:20,346 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6154)
+2020-01-27 20:17:20,389 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6216)
+2020-01-27 20:17:20,390 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6217)
+2020-01-27 20:17:20,427 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6275)
+2020-01-27 20:17:20,476 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6327)
+2020-01-27 20:17:20,515 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6382)
+2020-01-27 20:17:20,525 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6398)
+2020-01-27 20:17:20,542 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6424)
+2020-01-27 20:17:20,564 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6450)
+2020-01-27 20:17:20,609 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6509)
+2020-01-27 20:17:20,660 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6576)
+2020-01-27 20:17:20,668 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6588)
+2020-01-27 20:17:20,685 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6613)
+2020-01-27 20:17:20,702 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6634)
+2020-01-27 20:17:20,723 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6662)
+2020-01-27 20:17:20,780 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6734)
+2020-01-27 20:17:20,815 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6764)
+2020-01-27 20:17:20,861 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6827)
+2020-01-27 20:17:20,872 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6846)
+2020-01-27 20:17:20,921 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6919)
+2020-01-27 20:17:20,921 [INFO :onlinePreprocess] WARNING: ignoring an empty line (6919)
+2020-01-27 20:17:20,984 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7012)
+2020-01-27 20:17:20,991 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7020)
+2020-01-27 20:17:21,002 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7036)
+2020-01-27 20:17:21,053 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7113)
+2020-01-27 20:17:21,057 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7118)
+2020-01-27 20:17:21,081 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7155)
+2020-01-27 20:17:21,128 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7224)
+2020-01-27 20:17:21,140 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7244)
+2020-01-27 20:17:21,173 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7292)
+2020-01-27 20:17:21,220 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7359)
+2020-01-27 20:17:21,258 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7414)
+2020-01-27 20:17:21,269 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7430)
+2020-01-27 20:17:21,276 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7440)
+2020-01-27 20:17:21,316 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7496)
+2020-01-27 20:17:21,336 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7523)
+2020-01-27 20:17:21,342 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7531)
+2020-01-27 20:17:21,342 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7531)
+2020-01-27 20:17:21,344 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7534)
+2020-01-27 20:17:21,391 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7605)
+2020-01-27 20:17:21,403 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7622)
+2020-01-27 20:17:21,405 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7625)
+2020-01-27 20:17:21,527 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7817)
+2020-01-27 20:17:21,555 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7858)
+2020-01-27 20:17:21,620 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7952)
+2020-01-27 20:17:21,651 [INFO :onlinePreprocess] WARNING: ignoring an empty line (7995)
+2020-01-27 20:17:21,671 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8025)
+2020-01-27 20:17:21,679 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8036)
+2020-01-27 20:17:21,681 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8038)
+2020-01-27 20:17:21,691 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8056)
+2020-01-27 20:17:21,716 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8094)
+2020-01-27 20:17:21,721 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8102)
+2020-01-27 20:17:21,777 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8186)
+2020-01-27 20:17:21,791 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8206)
+2020-01-27 20:17:21,818 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8249)
+2020-01-27 20:17:21,819 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8249)
+2020-01-27 20:17:21,838 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8282)
+2020-01-27 20:17:21,841 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8285)
+2020-01-27 20:17:21,847 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8295)
+2020-01-27 20:17:21,862 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8318)
+2020-01-27 20:17:21,864 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8321)
+2020-01-27 20:17:21,910 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8382)
+2020-01-27 20:17:21,910 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8382)
+2020-01-27 20:17:21,922 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8399)
+2020-01-27 20:17:21,932 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8415)
+2020-01-27 20:17:21,943 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8427)
+2020-01-27 20:17:21,950 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8436)
+2020-01-27 20:17:21,978 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8478)
+2020-01-27 20:17:21,990 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8495)
+2020-01-27 20:17:22,013 [INFO :onlinePreprocess] WARNING: ignoring an empty line (8532)
+2020-01-27 20:17:22,013 [INFO :onlinePreprocess] ... sorting sentences by size
+2020-01-27 20:17:22,040 [INFO :onlinePreprocess] Prepared 8531 sentences (0 ignored due to length == 0 or > 100)
+2020-01-27 20:17:22,041 [INFO :__main__]  * vocabulary size. source = 100000; target = 100000
+2020-01-27 20:17:22,041 [INFO :__main__]  * number of training sentences. 8531
+2020-01-27 20:17:22,041 [INFO :__main__]  * maximum batch size. 64
+2020-01-27 20:17:22,041 [INFO :__main__] Building model...
+2020-01-27 20:17:24,903 [WARNI:__main__] Not updating encoder word embedding.
+2020-01-27 20:17:24,903 [INFO :__main__] sent_encoder.word_lut.weight
+2020-01-27 20:17:24,903 [INFO :__main__] sent_encoder.rnn.weight_ih_l0
+2020-01-27 20:17:24,903 [INFO :__main__] sent_encoder.rnn.weight_hh_l0
+2020-01-27 20:17:24,904 [INFO :__main__] sent_encoder.rnn.bias_ih_l0
+2020-01-27 20:17:24,904 [INFO :__main__] sent_encoder.rnn.bias_hh_l0
+2020-01-27 20:17:24,904 [INFO :__main__] sent_encoder.rnn.weight_ih_l0_reverse
+2020-01-27 20:17:24,904 [INFO :__main__] sent_encoder.rnn.weight_hh_l0_reverse
+2020-01-27 20:17:24,904 [INFO :__main__] sent_encoder.rnn.bias_ih_l0_reverse
+2020-01-27 20:17:24,904 [INFO :__main__] sent_encoder.rnn.bias_hh_l0_reverse
+2020-01-27 20:17:24,904 [INFO :__main__] doc_encoder.rnn.weight_ih_l0
+2020-01-27 20:17:24,904 [INFO :__main__] doc_encoder.rnn.weight_hh_l0
+2020-01-27 20:17:24,904 [INFO :__main__] doc_encoder.rnn.bias_ih_l0
+2020-01-27 20:17:24,904 [INFO :__main__] doc_encoder.rnn.bias_hh_l0
+2020-01-27 20:17:24,905 [INFO :__main__] doc_encoder.rnn.weight_ih_l0_reverse
+2020-01-27 20:17:24,905 [INFO :__main__] doc_encoder.rnn.weight_hh_l0_reverse
+2020-01-27 20:17:24,905 [INFO :__main__] doc_encoder.rnn.bias_ih_l0_reverse
+2020-01-27 20:17:24,905 [INFO :__main__] doc_encoder.rnn.bias_hh_l0_reverse
+2020-01-27 20:17:24,905 [INFO :__main__] pointer.rnn.layers.0.weight_ih
+2020-01-27 20:17:24,905 [INFO :__main__] pointer.rnn.layers.0.weight_hh
+2020-01-27 20:17:24,905 [INFO :__main__] pointer.rnn.layers.0.bias_ih
+2020-01-27 20:17:24,905 [INFO :__main__] pointer.rnn.layers.0.bias_hh
+2020-01-27 20:17:24,905 [INFO :__main__] pointer.scorer.linear_pre.weight
+2020-01-27 20:17:24,906 [INFO :__main__] pointer.scorer.linear_pre.bias
+2020-01-27 20:17:24,906 [INFO :__main__] pointer.scorer.linear_q.weight
+2020-01-27 20:17:24,906 [INFO :__main__] pointer.scorer.linear_q.bias
+2020-01-27 20:17:24,906 [INFO :__main__] pointer.scorer.linear_v.weight
+2020-01-27 20:17:24,906 [INFO :__main__] pointer.scorer.linear_v.bias
+2020-01-27 20:17:24,906 [INFO :__main__] decIniter.initer.weight
+2020-01-27 20:17:24,906 [INFO :__main__] decIniter.initer.bias
+2020-01-27 20:17:24,938 [INFO :__main__] Loading pretrain embedding from /idiap/temp/jbello/data/training/neusum_aspect/glove.100k.50d.txt
+2020-01-27 20:17:32,515 [INFO :__main__] 100000 word types in pretrained.
+2020-01-27 20:17:32,516 [INFO :__main__] Load 99993 / 100000 = 0.99993
+2020-01-27 20:17:33,047 [INFO :__main__] NMTModel(
+  (sent_encoder): Encoder(
+    (word_lut): Embedding(100000, 50, padding_idx=0)
+    (rnn): GRU(50, 128, dropout=0.3, bidirectional=True)
+    (dropout): Dropout(p=0.3)
+  )
+  (doc_encoder): DocumentEncoder(
+    (rnn): GRU(256, 128, dropout=0.2, bidirectional=True)
+    (dropout): Dropout(p=0.2)
+  )
+  (pointer): Pointer(
+    (rnn): StackedGRU(
+      (dropout): Dropout(p=0.0)
+      (layers): ModuleList(
+        (0): GRUCell(256, 256)
+      )
+    )
+    (scorer): ScoreAttention(256 * (256->256 + 256->256))
+  )
+  (decIniter): DecInit(
+    (initer): Linear(in_features=128, out_features=256)
+  )
+)
+2020-01-27 20:17:33,048 [WARNI:__main__] Set model to train mode
+2020-01-27 20:17:33,048 [INFO :__main__] 
+2020-01-27 20:17:33,048 [INFO :__main__] Shuffling...
+2020-01-27 20:17:49,327 [INFO :__main__] Epoch  1,    100/  100/  134; reg_loss: 273.52; docs:    64; avg_reg_loss:   4.27;     16 s elapsed
+2020-01-27 20:17:54,383 [INFO :__main__] Train regression loss: 4.70223
+2020-01-27 20:17:54,383 [INFO :__main__] 
+2020-01-27 20:17:54,383 [INFO :__main__] Shuffling...
+2020-01-27 20:18:09,227 [INFO :__main__] Epoch  2,    234/  100/  134; reg_loss: 307.56; docs:    64; avg_reg_loss:   4.81;     15 s elapsed
+2020-01-27 20:18:14,309 [INFO :__main__] Train regression loss: 4.24939
+2020-01-27 20:18:14,310 [INFO :__main__] 
+2020-01-27 20:18:14,310 [INFO :__main__] Shuffling...
+2020-01-27 20:18:29,380 [INFO :__main__] Epoch  3,    368/  100/  134; reg_loss: 239.10; docs:    64; avg_reg_loss:   3.74;     15 s elapsed
+2020-01-27 20:18:34,338 [INFO :__main__] Train regression loss: 4.00136
+2020-01-27 20:18:34,339 [INFO :__main__] 
+2020-01-27 20:18:34,339 [INFO :__main__] Shuffling...
+2020-01-27 20:18:49,330 [INFO :__main__] Epoch  4,    502/  100/  134; reg_loss: 253.18; docs:    64; avg_reg_loss:   3.96;     15 s elapsed
+2020-01-27 20:18:54,387 [INFO :__main__] Train regression loss: 3.80606
+2020-01-27 20:18:54,388 [INFO :__main__] 
+2020-01-27 20:18:54,388 [INFO :__main__] Shuffling...
+2020-01-27 20:19:09,344 [INFO :__main__] Epoch  5,    636/  100/  134; reg_loss: 262.70; docs:    64; avg_reg_loss:   4.10;     15 s elapsed
+2020-01-27 20:19:15,645 [INFO :__main__] Train regression loss: 3.64354
+2020-01-27 20:19:15,646 [INFO :__main__] 
+2020-01-27 20:19:15,646 [INFO :__main__] Shuffling...
+2020-01-27 20:19:34,899 [INFO :__main__] Epoch  6,    770/  100/  134; reg_loss: 226.54; docs:    64; avg_reg_loss:   3.54;     19 s elapsed
+2020-01-27 20:19:40,521 [INFO :__main__] Train regression loss: 3.48038
+2020-01-27 20:19:40,521 [INFO :__main__] 
+2020-01-27 20:19:40,521 [INFO :__main__] Shuffling...
+2020-01-27 20:19:56,318 [INFO :__main__] Epoch  7,    904/  100/  134; reg_loss: 192.70; docs:    64; avg_reg_loss:   3.01;     16 s elapsed
+2020-01-27 20:20:01,461 [INFO :__main__] Train regression loss: 3.3364
+2020-01-27 20:20:01,461 [INFO :__main__] 
+2020-01-27 20:20:01,462 [INFO :__main__] Shuffling...
+2020-01-27 20:20:16,564 [INFO :__main__] Epoch  8,   1038/  100/  134; reg_loss: 178.24; docs:    64; avg_reg_loss:   2.79;     15 s elapsed
+2020-01-27 20:20:21,552 [INFO :__main__] Train regression loss: 3.19978
+2020-01-27 20:20:21,552 [INFO :__main__] 
+2020-01-27 20:20:21,552 [INFO :__main__] Shuffling...
+2020-01-27 20:20:36,694 [INFO :__main__] Epoch  9,   1172/  100/  134; reg_loss: 175.03; docs:    64; avg_reg_loss:   2.73;     15 s elapsed
+2020-01-27 20:20:43,322 [INFO :__main__] Train regression loss: 3.08247
+2020-01-27 20:20:43,322 [INFO :__main__] 
+2020-01-27 20:20:43,322 [INFO :__main__] Shuffling...
+2020-01-27 20:21:00,674 [INFO :__main__] Epoch 10,   1306/  100/  134; reg_loss: 229.19; docs:    64; avg_reg_loss:   3.58;     17 s elapsed
+2020-01-27 20:21:05,894 [INFO :__main__] Train regression loss: 2.91998
+2020-01-27 20:21:05,895 [INFO :__main__] 
+2020-01-27 20:21:05,895 [INFO :__main__] Shuffling...
+2020-01-27 20:21:20,728 [INFO :__main__] Epoch 11,   1440/  100/  134; reg_loss: 201.09; docs:    64; avg_reg_loss:   3.14;     15 s elapsed
+2020-01-27 20:21:25,804 [INFO :__main__] Train regression loss: 2.79615
+2020-01-27 20:21:25,804 [INFO :__main__] 
+2020-01-27 20:21:25,804 [INFO :__main__] Shuffling...
+2020-01-27 20:21:40,949 [INFO :__main__] Epoch 12,   1574/  100/  134; reg_loss: 172.75; docs:    64; avg_reg_loss:   2.70;     15 s elapsed
+2020-01-27 20:21:45,859 [INFO :__main__] Train regression loss: 2.68725
+2020-01-27 20:21:45,860 [INFO :__main__] 
+2020-01-27 20:21:45,860 [INFO :__main__] Shuffling...
+2020-01-27 20:22:00,825 [INFO :__main__] Epoch 13,   1708/  100/  134; reg_loss: 154.92; docs:    64; avg_reg_loss:   2.42;     15 s elapsed
+2020-01-27 20:22:05,835 [INFO :__main__] Train regression loss: 2.56355
+2020-01-27 20:22:05,835 [INFO :__main__] 
+2020-01-27 20:22:05,836 [INFO :__main__] Shuffling...
+2020-01-27 20:22:21,116 [INFO :__main__] Epoch 14,   1842/  100/  134; reg_loss: 178.05; docs:    64; avg_reg_loss:   2.78;     15 s elapsed
+2020-01-27 20:22:26,158 [INFO :__main__] Train regression loss: 2.44671
+2020-01-27 20:22:26,159 [INFO :__main__] 
+2020-01-27 20:22:26,159 [INFO :__main__] Shuffling...
+2020-01-27 20:22:41,152 [INFO :__main__] Epoch 15,   1976/  100/  134; reg_loss: 141.32; docs:    64; avg_reg_loss:   2.21;     15 s elapsed
+2020-01-27 20:22:44,659 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:22:57,325 [WARNI:__main__] Set model to train mode
+2020-01-27 20:22:57,326 [INFO :__main__] (0.01916990308398621, 0.0004721553724241494, (0.01824361208255285, 0.02009619408541957))
+2020-01-27 20:22:57,327 [INFO :__main__] Validation Score: 1.91699
+2020-01-27 20:22:58,174 [INFO :neusum.Optim] Bad_count: 0	Current lr: 0.001
+2020-01-27 20:22:58,174 [INFO :neusum.Optim] Best metric: 0.01916990308398621
+2020-01-27 20:22:59,899 [INFO :__main__] Train regression loss: 2.33774
+2020-01-27 20:22:59,899 [INFO :__main__] 
+2020-01-27 20:22:59,899 [INFO :__main__] Shuffling...
+2020-01-27 20:23:15,011 [INFO :__main__] Epoch 16,   2110/  100/  134; reg_loss: 143.80; docs:    64; avg_reg_loss:   2.25;     15 s elapsed
+2020-01-27 20:23:20,139 [INFO :__main__] Train regression loss: 2.21665
+2020-01-27 20:23:20,139 [INFO :__main__] 
+2020-01-27 20:23:20,139 [INFO :__main__] Shuffling...
+2020-01-27 20:23:35,364 [INFO :__main__] Epoch 17,   2244/  100/  134; reg_loss: 157.74; docs:    64; avg_reg_loss:   2.46;     15 s elapsed
+2020-01-27 20:23:40,502 [INFO :__main__] Train regression loss: 2.10167
+2020-01-27 20:23:40,503 [INFO :__main__] 
+2020-01-27 20:23:40,503 [INFO :__main__] Shuffling...
+2020-01-27 20:23:55,693 [INFO :__main__] Epoch 18,   2378/  100/  134; reg_loss: 127.51; docs:    64; avg_reg_loss:   1.99;     15 s elapsed
+2020-01-27 20:24:00,896 [INFO :__main__] Train regression loss: 1.98968
+2020-01-27 20:24:00,897 [INFO :__main__] 
+2020-01-27 20:24:00,897 [INFO :__main__] Shuffling...
+2020-01-27 20:24:16,147 [INFO :__main__] Epoch 19,   2512/  100/  134; reg_loss: 134.47; docs:    64; avg_reg_loss:   2.10;     15 s elapsed
+2020-01-27 20:24:21,498 [INFO :__main__] Train regression loss: 1.8909
+2020-01-27 20:24:21,499 [INFO :__main__] 
+2020-01-27 20:24:21,499 [INFO :__main__] Shuffling...
+2020-01-27 20:24:36,633 [INFO :__main__] Epoch 20,   2646/  100/  134; reg_loss: 110.18; docs:    64; avg_reg_loss:   1.72;     15 s elapsed
+2020-01-27 20:24:42,955 [INFO :__main__] Train regression loss: 1.78772
+2020-01-27 20:24:42,955 [INFO :__main__] 
+2020-01-27 20:24:42,955 [INFO :__main__] Shuffling...
+2020-01-27 20:25:02,822 [INFO :__main__] Epoch 21,   2780/  100/  134; reg_loss: 137.42; docs:    64; avg_reg_loss:   2.15;     20 s elapsed
+2020-01-27 20:25:08,271 [INFO :__main__] Train regression loss: 1.70488
+2020-01-27 20:25:08,272 [INFO :__main__] 
+2020-01-27 20:25:08,272 [INFO :__main__] Shuffling...
+2020-01-27 20:25:24,627 [INFO :__main__] Epoch 22,   2914/  100/  134; reg_loss:  97.38; docs:    64; avg_reg_loss:   1.52;     16 s elapsed
+2020-01-27 20:25:29,680 [INFO :__main__] Train regression loss: 1.62823
+2020-01-27 20:25:29,680 [INFO :__main__] 
+2020-01-27 20:25:29,680 [INFO :__main__] Shuffling...
+2020-01-27 20:25:37,957 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:25:44,231 [WARNI:__main__] Set model to train mode
+2020-01-27 20:25:44,232 [INFO :__main__] (0.019334966580383948, 0.0004772262565325766, (0.018398727340312886, 0.02027120582045501))
+2020-01-27 20:25:44,232 [INFO :__main__] Validation Score: 1.9335
+2020-01-27 20:25:45,268 [INFO :neusum.Optim] Bad_count: 0	Current lr: 0.001
+2020-01-27 20:25:45,269 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:25:54,677 [INFO :__main__] Epoch 23,   3048/  100/  134; reg_loss:  80.40; docs:    64; avg_reg_loss:   1.26;     25 s elapsed
+2020-01-27 20:25:59,816 [INFO :__main__] Train regression loss: 1.553
+2020-01-27 20:25:59,817 [INFO :__main__] 
+2020-01-27 20:25:59,818 [INFO :__main__] Shuffling...
+2020-01-27 20:26:17,744 [INFO :__main__] Epoch 24,   3182/  100/  134; reg_loss: 105.55; docs:    64; avg_reg_loss:   1.65;     18 s elapsed
+2020-01-27 20:26:23,895 [INFO :__main__] Train regression loss: 1.49126
+2020-01-27 20:26:23,896 [INFO :__main__] 
+2020-01-27 20:26:23,896 [INFO :__main__] Shuffling...
+2020-01-27 20:26:42,422 [INFO :__main__] Epoch 25,   3316/  100/  134; reg_loss: 107.72; docs:    64; avg_reg_loss:   1.68;     19 s elapsed
+2020-01-27 20:26:48,739 [INFO :__main__] Train regression loss: 1.42301
+2020-01-27 20:26:48,740 [INFO :__main__] 
+2020-01-27 20:26:48,740 [INFO :__main__] Shuffling...
+2020-01-27 20:27:08,684 [INFO :__main__] Epoch 26,   3450/  100/  134; reg_loss:  88.47; docs:    64; avg_reg_loss:   1.38;     20 s elapsed
+2020-01-27 20:27:14,110 [INFO :__main__] Train regression loss: 1.33428
+2020-01-27 20:27:14,110 [INFO :__main__] 
+2020-01-27 20:27:14,110 [INFO :__main__] Shuffling...
+2020-01-27 20:27:32,446 [INFO :__main__] Epoch 27,   3584/  100/  134; reg_loss:  99.46; docs:    64; avg_reg_loss:   1.55;     18 s elapsed
+2020-01-27 20:27:39,335 [INFO :__main__] Train regression loss: 1.30979
+2020-01-27 20:27:39,336 [INFO :__main__] 
+2020-01-27 20:27:39,336 [INFO :__main__] Shuffling...
+2020-01-27 20:27:59,008 [INFO :__main__] Epoch 28,   3718/  100/  134; reg_loss:  86.65; docs:    64; avg_reg_loss:   1.35;     20 s elapsed
+2020-01-27 20:28:05,484 [INFO :__main__] Train regression loss: 1.26345
+2020-01-27 20:28:05,485 [INFO :__main__] 
+2020-01-27 20:28:05,485 [INFO :__main__] Shuffling...
+2020-01-27 20:28:24,247 [INFO :__main__] Epoch 29,   3852/  100/  134; reg_loss:  63.46; docs:    64; avg_reg_loss:   0.99;     19 s elapsed
+2020-01-27 20:28:30,788 [INFO :__main__] Train regression loss: 1.19636
+2020-01-27 20:28:30,790 [INFO :__main__] 
+2020-01-27 20:28:30,790 [INFO :__main__] Shuffling...
+2020-01-27 20:28:49,286 [INFO :__main__] Epoch 30,   3986/  100/  134; reg_loss:  64.67; docs:    64; avg_reg_loss:   1.01;     18 s elapsed
+2020-01-27 20:28:51,716 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:28:58,279 [WARNI:__main__] Set model to train mode
+2020-01-27 20:28:58,280 [INFO :__main__] (0.019095827944918067, 0.0004795147202549849, (0.01815509911629845, 0.020036556773537682))
+2020-01-27 20:28:58,280 [INFO :__main__] Validation Score: 1.90958
+2020-01-27 20:28:58,280 [INFO :neusum.Optim] Bad_count: 1	Current lr: 0.001
+2020-01-27 20:28:58,280 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:29:02,163 [INFO :__main__] Train regression loss: 1.1753
+2020-01-27 20:29:02,164 [INFO :__main__] 
+2020-01-27 20:29:02,164 [INFO :__main__] Shuffling...
+2020-01-27 20:29:21,900 [INFO :__main__] Epoch 31,   4120/  100/  134; reg_loss:  68.17; docs:    64; avg_reg_loss:   1.07;     20 s elapsed
+2020-01-27 20:29:28,711 [INFO :__main__] Train regression loss: 1.13277
+2020-01-27 20:29:28,712 [INFO :__main__] 
+2020-01-27 20:29:28,712 [INFO :__main__] Shuffling...
+2020-01-27 20:29:48,104 [INFO :__main__] Epoch 32,   4254/  100/  134; reg_loss: 109.55; docs:    64; avg_reg_loss:   1.71;     19 s elapsed
+2020-01-27 20:29:54,463 [INFO :__main__] Train regression loss: 1.09618
+2020-01-27 20:29:54,464 [INFO :__main__] 
+2020-01-27 20:29:54,464 [INFO :__main__] Shuffling...
+2020-01-27 20:30:13,128 [INFO :__main__] Epoch 33,   4388/  100/  134; reg_loss:  63.88; docs:    64; avg_reg_loss:   1.00;     19 s elapsed
+2020-01-27 20:30:19,505 [INFO :__main__] Train regression loss: 1.06659
+2020-01-27 20:30:19,506 [INFO :__main__] 
+2020-01-27 20:30:19,506 [INFO :__main__] Shuffling...
+2020-01-27 20:30:38,125 [INFO :__main__] Epoch 34,   4522/  100/  134; reg_loss:  76.32; docs:    64; avg_reg_loss:   1.19;     19 s elapsed
+2020-01-27 20:30:44,674 [INFO :__main__] Train regression loss: 1.04196
+2020-01-27 20:30:44,676 [INFO :__main__] 
+2020-01-27 20:30:44,676 [INFO :__main__] Shuffling...
+2020-01-27 20:31:03,495 [INFO :__main__] Epoch 35,   4656/  100/  134; reg_loss:  90.08; docs:    64; avg_reg_loss:   1.41;     19 s elapsed
+2020-01-27 20:31:09,908 [INFO :__main__] Train regression loss: 0.994561
+2020-01-27 20:31:09,909 [INFO :__main__] 
+2020-01-27 20:31:09,909 [INFO :__main__] Shuffling...
+2020-01-27 20:31:29,165 [INFO :__main__] Epoch 36,   4790/  100/  134; reg_loss:  57.43; docs:    64; avg_reg_loss:   0.90;     19 s elapsed
+2020-01-27 20:31:35,658 [INFO :__main__] Train regression loss: 0.979709
+2020-01-27 20:31:35,659 [INFO :__main__] 
+2020-01-27 20:31:35,659 [INFO :__main__] Shuffling...
+2020-01-27 20:31:52,941 [INFO :__main__] Epoch 37,   4924/  100/  134; reg_loss:  75.68; docs:    64; avg_reg_loss:   1.18;     17 s elapsed
+2020-01-27 20:31:58,065 [INFO :__main__] Train regression loss: 0.953431
+2020-01-27 20:31:58,065 [INFO :__main__] 
+2020-01-27 20:31:58,065 [INFO :__main__] Shuffling...
+2020-01-27 20:32:04,386 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:32:09,566 [WARNI:__main__] Set model to train mode
+2020-01-27 20:32:09,567 [INFO :__main__] (0.01924792420001137, 0.0004848264436898035, (0.01829677464570031, 0.020199073754322432))
+2020-01-27 20:32:09,567 [INFO :__main__] Validation Score: 1.92479
+2020-01-27 20:32:09,567 [INFO :neusum.Optim] Bad_count: 2	Current lr: 0.001
+2020-01-27 20:32:09,567 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:32:18,615 [INFO :__main__] Epoch 38,   5058/  100/  134; reg_loss:  71.37; docs:    64; avg_reg_loss:   1.12;     21 s elapsed
+2020-01-27 20:32:23,699 [INFO :__main__] Train regression loss: 0.927944
+2020-01-27 20:32:23,699 [INFO :__main__] 
+2020-01-27 20:32:23,699 [INFO :__main__] Shuffling...
+2020-01-27 20:32:38,900 [INFO :__main__] Epoch 39,   5192/  100/  134; reg_loss:  45.26; docs:    64; avg_reg_loss:   0.71;     15 s elapsed
+2020-01-27 20:32:44,209 [INFO :__main__] Train regression loss: 0.895479
+2020-01-27 20:32:44,211 [INFO :__main__] 
+2020-01-27 20:32:44,211 [INFO :__main__] Shuffling...
+2020-01-27 20:32:59,624 [INFO :__main__] Epoch 40,   5326/  100/  134; reg_loss:  49.13; docs:    64; avg_reg_loss:   0.77;     15 s elapsed
+2020-01-27 20:33:04,770 [INFO :__main__] Train regression loss: 0.870851
+2020-01-27 20:33:04,770 [INFO :__main__] 
+2020-01-27 20:33:04,770 [INFO :__main__] Shuffling...
+2020-01-27 20:33:19,968 [INFO :__main__] Epoch 41,   5460/  100/  134; reg_loss:  46.07; docs:    64; avg_reg_loss:   0.72;     15 s elapsed
+2020-01-27 20:33:25,322 [INFO :__main__] Train regression loss: 0.8624
+2020-01-27 20:33:25,322 [INFO :__main__] 
+2020-01-27 20:33:25,322 [INFO :__main__] Shuffling...
+2020-01-27 20:33:40,824 [INFO :__main__] Epoch 42,   5594/  100/  134; reg_loss:  52.54; docs:    64; avg_reg_loss:   0.82;     15 s elapsed
+2020-01-27 20:33:46,024 [INFO :__main__] Train regression loss: 0.840975
+2020-01-27 20:33:46,025 [INFO :__main__] 
+2020-01-27 20:33:46,025 [INFO :__main__] Shuffling...
+2020-01-27 20:34:01,224 [INFO :__main__] Epoch 43,   5728/  100/  134; reg_loss:  15.61; docs:    19; avg_reg_loss:   0.82;     15 s elapsed
+2020-01-27 20:34:06,510 [INFO :__main__] Train regression loss: 0.83355
+2020-01-27 20:34:06,511 [INFO :__main__] 
+2020-01-27 20:34:06,511 [INFO :__main__] Shuffling...
+2020-01-27 20:34:21,653 [INFO :__main__] Epoch 44,   5862/  100/  134; reg_loss:  37.11; docs:    64; avg_reg_loss:   0.58;     15 s elapsed
+2020-01-27 20:34:26,886 [INFO :__main__] Train regression loss: 0.805669
+2020-01-27 20:34:26,886 [INFO :__main__] 
+2020-01-27 20:34:26,886 [INFO :__main__] Shuffling...
+2020-01-27 20:34:42,305 [INFO :__main__] Epoch 45,   5996/  100/  134; reg_loss:  36.58; docs:    64; avg_reg_loss:   0.57;     15 s elapsed
+2020-01-27 20:34:42,772 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:34:47,531 [WARNI:__main__] Set model to train mode
+2020-01-27 20:34:47,531 [INFO :__main__] (0.019021114115178078, 0.0004710207333248875, (0.01809704908860152, 0.019945179141754636))
+2020-01-27 20:34:47,531 [INFO :__main__] Validation Score: 1.90211
+2020-01-27 20:34:47,531 [INFO :neusum.Optim] Bad_count: 3	Current lr: 0.001
+2020-01-27 20:34:47,532 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:34:52,237 [INFO :__main__] Train regression loss: 0.806947
+2020-01-27 20:34:52,239 [INFO :__main__] 
+2020-01-27 20:34:52,239 [INFO :__main__] Shuffling...
+2020-01-27 20:35:07,843 [INFO :__main__] Epoch 46,   6130/  100/  134; reg_loss:  53.83; docs:    64; avg_reg_loss:   0.84;     16 s elapsed
+2020-01-27 20:35:14,526 [INFO :__main__] Train regression loss: 0.784382
+2020-01-27 20:35:14,528 [INFO :__main__] 
+2020-01-27 20:35:14,528 [INFO :__main__] Shuffling...
+2020-01-27 20:35:34,279 [INFO :__main__] Epoch 47,   6264/  100/  134; reg_loss:  57.89; docs:    64; avg_reg_loss:   0.90;     20 s elapsed
+2020-01-27 20:35:40,863 [INFO :__main__] Train regression loss: 0.765086
+2020-01-27 20:35:40,864 [INFO :__main__] 
+2020-01-27 20:35:40,864 [INFO :__main__] Shuffling...
+2020-01-27 20:35:57,931 [INFO :__main__] Epoch 48,   6398/  100/  134; reg_loss:  62.19; docs:    64; avg_reg_loss:   0.97;     17 s elapsed
+2020-01-27 20:36:03,107 [INFO :__main__] Train regression loss: 0.764339
+2020-01-27 20:36:03,107 [INFO :__main__] 
+2020-01-27 20:36:03,107 [INFO :__main__] Shuffling...
+2020-01-27 20:36:18,343 [INFO :__main__] Epoch 49,   6532/  100/  134; reg_loss:  51.60; docs:    64; avg_reg_loss:   0.81;     15 s elapsed
+2020-01-27 20:36:23,561 [INFO :__main__] Train regression loss: 0.741813
+2020-01-27 20:36:23,562 [INFO :__main__] 
+2020-01-27 20:36:23,562 [INFO :__main__] Shuffling...
+2020-01-27 20:36:38,752 [INFO :__main__] Epoch 50,   6666/  100/  134; reg_loss:  47.61; docs:    64; avg_reg_loss:   0.74;     15 s elapsed
+2020-01-27 20:36:43,971 [INFO :__main__] Train regression loss: 0.748209
+2020-01-27 20:36:43,971 [INFO :__main__] 
+2020-01-27 20:36:43,971 [INFO :__main__] Shuffling...
+2020-01-27 20:36:59,258 [INFO :__main__] Epoch 51,   6800/  100/  134; reg_loss:  39.90; docs:    64; avg_reg_loss:   0.62;     15 s elapsed
+2020-01-27 20:37:04,516 [INFO :__main__] Train regression loss: 0.725509
+2020-01-27 20:37:04,517 [INFO :__main__] 
+2020-01-27 20:37:04,517 [INFO :__main__] Shuffling...
+2020-01-27 20:37:19,859 [INFO :__main__] Epoch 52,   6934/  100/  134; reg_loss:  39.56; docs:    64; avg_reg_loss:   0.62;     15 s elapsed
+2020-01-27 20:37:24,958 [INFO :__main__] Train regression loss: 0.713585
+2020-01-27 20:37:24,959 [INFO :__main__] 
+2020-01-27 20:37:24,959 [INFO :__main__] Shuffling...
+2020-01-27 20:37:29,827 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:37:34,415 [WARNI:__main__] Set model to train mode
+2020-01-27 20:37:34,416 [INFO :__main__] (0.01916924761978147, 0.0004795540011596411, (0.018228441728502746, 0.020110053511060193))
+2020-01-27 20:37:34,416 [INFO :__main__] Validation Score: 1.91692
+2020-01-27 20:37:34,416 [INFO :neusum.Optim] Bad_count: 4	Current lr: 0.001
+2020-01-27 20:37:34,416 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:37:45,239 [INFO :__main__] Epoch 53,   7068/  100/  134; reg_loss:  55.10; docs:    64; avg_reg_loss:   0.86;     20 s elapsed
+2020-01-27 20:37:50,415 [INFO :__main__] Train regression loss: 0.687086
+2020-01-27 20:37:50,416 [INFO :__main__] 
+2020-01-27 20:37:50,416 [INFO :__main__] Shuffling...
+2020-01-27 20:38:05,787 [INFO :__main__] Epoch 54,   7202/  100/  134; reg_loss:  46.43; docs:    64; avg_reg_loss:   0.73;     15 s elapsed
+2020-01-27 20:38:11,104 [INFO :__main__] Train regression loss: 0.681979
+2020-01-27 20:38:11,105 [INFO :__main__] 
+2020-01-27 20:38:11,105 [INFO :__main__] Shuffling...
+2020-01-27 20:38:26,375 [INFO :__main__] Epoch 55,   7336/  100/  134; reg_loss:  50.05; docs:    64; avg_reg_loss:   0.78;     15 s elapsed
+2020-01-27 20:38:31,537 [INFO :__main__] Train regression loss: 0.688797
+2020-01-27 20:38:31,537 [INFO :__main__] 
+2020-01-27 20:38:31,537 [INFO :__main__] Shuffling...
+2020-01-27 20:38:46,909 [INFO :__main__] Epoch 56,   7470/  100/  134; reg_loss:  47.79; docs:    64; avg_reg_loss:   0.75;     15 s elapsed
+2020-01-27 20:38:52,198 [INFO :__main__] Train regression loss: 0.668801
+2020-01-27 20:38:52,199 [INFO :__main__] 
+2020-01-27 20:38:52,199 [INFO :__main__] Shuffling...
+2020-01-27 20:39:07,484 [INFO :__main__] Epoch 57,   7604/  100/  134; reg_loss:  39.94; docs:    64; avg_reg_loss:   0.62;     15 s elapsed
+2020-01-27 20:39:12,827 [INFO :__main__] Train regression loss: 0.660553
+2020-01-27 20:39:12,827 [INFO :__main__] 
+2020-01-27 20:39:12,827 [INFO :__main__] Shuffling...
+2020-01-27 20:39:28,230 [INFO :__main__] Epoch 58,   7738/  100/  134; reg_loss:  48.78; docs:    64; avg_reg_loss:   0.76;     15 s elapsed
+2020-01-27 20:39:33,320 [INFO :__main__] Train regression loss: 0.655591
+2020-01-27 20:39:33,320 [INFO :__main__] 
+2020-01-27 20:39:33,320 [INFO :__main__] Shuffling...
+2020-01-27 20:39:48,533 [INFO :__main__] Epoch 59,   7872/  100/  134; reg_loss:  44.77; docs:    64; avg_reg_loss:   0.70;     15 s elapsed
+2020-01-27 20:39:53,721 [INFO :__main__] Train regression loss: 0.650537
+2020-01-27 20:39:53,722 [INFO :__main__] 
+2020-01-27 20:39:53,722 [INFO :__main__] Shuffling...
+2020-01-27 20:40:07,957 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:40:12,711 [WARNI:__main__] Set model to train mode
+2020-01-27 20:40:12,711 [INFO :__main__] (0.019159010107560024, 0.00047039744748264724, (0.018236167865051396, 0.020081852350068652))
+2020-01-27 20:40:12,711 [INFO :__main__] Validation Score: 1.9159
+2020-01-27 20:40:12,711 [INFO :neusum.Optim] Bad_count: 5	Current lr: 0.001
+2020-01-27 20:40:12,711 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:40:13,880 [INFO :__main__] Epoch 60,   8006/  100/  134; reg_loss:  43.11; docs:    64; avg_reg_loss:   0.67;     20 s elapsed
+2020-01-27 20:40:20,460 [INFO :__main__] Train regression loss: 0.644805
+2020-01-27 20:40:20,462 [INFO :__main__] 
+2020-01-27 20:40:20,462 [INFO :__main__] Shuffling...
+2020-01-27 20:40:37,868 [INFO :__main__] Epoch 61,   8140/  100/  134; reg_loss:  56.44; docs:    64; avg_reg_loss:   0.88;     17 s elapsed
+2020-01-27 20:40:44,052 [INFO :__main__] Train regression loss: 0.63553
+2020-01-27 20:40:44,053 [INFO :__main__] 
+2020-01-27 20:40:44,054 [INFO :__main__] Shuffling...
+2020-01-27 20:41:02,347 [INFO :__main__] Epoch 62,   8274/  100/  134; reg_loss:  36.44; docs:    64; avg_reg_loss:   0.57;     18 s elapsed
+2020-01-27 20:41:07,526 [INFO :__main__] Train regression loss: 0.617427
+2020-01-27 20:41:07,527 [INFO :__main__] 
+2020-01-27 20:41:07,527 [INFO :__main__] Shuffling...
+2020-01-27 20:41:22,894 [INFO :__main__] Epoch 63,   8408/  100/  134; reg_loss:  51.95; docs:    64; avg_reg_loss:   0.81;     15 s elapsed
+2020-01-27 20:41:28,179 [INFO :__main__] Train regression loss: 0.618323
+2020-01-27 20:41:28,179 [INFO :__main__] 
+2020-01-27 20:41:28,180 [INFO :__main__] Shuffling...
+2020-01-27 20:41:43,484 [INFO :__main__] Epoch 64,   8542/  100/  134; reg_loss:  30.98; docs:    64; avg_reg_loss:   0.48;     15 s elapsed
+2020-01-27 20:41:48,699 [INFO :__main__] Train regression loss: 0.610061
+2020-01-27 20:41:48,700 [INFO :__main__] 
+2020-01-27 20:41:48,700 [INFO :__main__] Shuffling...
+2020-01-27 20:42:04,080 [INFO :__main__] Epoch 65,   8676/  100/  134; reg_loss:  36.90; docs:    64; avg_reg_loss:   0.58;     15 s elapsed
+2020-01-27 20:42:09,178 [INFO :__main__] Train regression loss: 0.599681
+2020-01-27 20:42:09,179 [INFO :__main__] 
+2020-01-27 20:42:09,179 [INFO :__main__] Shuffling...
+2020-01-27 20:42:24,735 [INFO :__main__] Epoch 66,   8810/  100/  134; reg_loss:  27.85; docs:    64; avg_reg_loss:   0.44;     16 s elapsed
+2020-01-27 20:42:29,835 [INFO :__main__] Train regression loss: 0.595505
+2020-01-27 20:42:29,835 [INFO :__main__] 
+2020-01-27 20:42:29,836 [INFO :__main__] Shuffling...
+2020-01-27 20:42:45,040 [INFO :__main__] Epoch 67,   8944/  100/  134; reg_loss:  36.44; docs:    64; avg_reg_loss:   0.57;     15 s elapsed
+2020-01-27 20:42:50,322 [INFO :__main__] Train regression loss: 0.59037
+2020-01-27 20:42:50,322 [INFO :__main__] 
+2020-01-27 20:42:50,323 [INFO :__main__] Shuffling...
+2020-01-27 20:42:53,553 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:42:57,798 [WARNI:__main__] Set model to train mode
+2020-01-27 20:42:57,799 [INFO :__main__] (0.01925295675261052, 0.00047587357565620627, (0.018319371249416707, 0.020186542255804334))
+2020-01-27 20:42:57,799 [INFO :__main__] Validation Score: 1.9253
+2020-01-27 20:42:57,799 [INFO :neusum.Optim] Bad_count: 6	Current lr: 0.001
+2020-01-27 20:42:57,799 [INFO :neusum.Optim] Best metric: 0.019334966580383948
+2020-01-27 20:43:10,017 [INFO :__main__] Epoch 68,   9078/  100/  134; reg_loss:  42.81; docs:    64; avg_reg_loss:   0.67;     20 s elapsed
+2020-01-27 20:43:15,226 [INFO :__main__] Train regression loss: 0.590905
+2020-01-27 20:43:15,226 [INFO :__main__] 
+2020-01-27 20:43:15,226 [INFO :__main__] Shuffling...
+2020-01-27 20:43:30,541 [INFO :__main__] Epoch 69,   9212/  100/  134; reg_loss:  38.41; docs:    64; avg_reg_loss:   0.60;     15 s elapsed
+2020-01-27 20:43:35,726 [INFO :__main__] Train regression loss: 0.578029
+2020-01-27 20:43:35,726 [INFO :__main__] 
+2020-01-27 20:43:35,726 [INFO :__main__] Shuffling...
+2020-01-27 20:43:51,125 [INFO :__main__] Epoch 70,   9346/  100/  134; reg_loss:  45.08; docs:    64; avg_reg_loss:   0.70;     15 s elapsed
+2020-01-27 20:43:56,347 [INFO :__main__] Train regression loss: 0.578034
+2020-01-27 20:43:56,348 [INFO :__main__] 
+2020-01-27 20:43:56,348 [INFO :__main__] Shuffling...
+2020-01-27 20:44:11,782 [INFO :__main__] Epoch 71,   9480/  100/  134; reg_loss:  34.09; docs:    64; avg_reg_loss:   0.53;     15 s elapsed
+2020-01-27 20:44:17,133 [INFO :__main__] Train regression loss: 0.568103
+2020-01-27 20:44:17,133 [INFO :__main__] 
+2020-01-27 20:44:17,133 [INFO :__main__] Shuffling...
+2020-01-27 20:44:32,258 [INFO :__main__] Epoch 72,   9614/  100/  134; reg_loss:  46.43; docs:    64; avg_reg_loss:   0.73;     15 s elapsed
+2020-01-27 20:44:37,547 [INFO :__main__] Train regression loss: 0.56554
+2020-01-27 20:44:37,547 [INFO :__main__] 
+2020-01-27 20:44:37,548 [INFO :__main__] Shuffling...
+2020-01-27 20:44:52,774 [INFO :__main__] Epoch 73,   9748/  100/  134; reg_loss:  42.40; docs:    64; avg_reg_loss:   0.66;     15 s elapsed
+2020-01-27 20:44:57,919 [INFO :__main__] Train regression loss: 0.559267
+2020-01-27 20:44:57,920 [INFO :__main__] 
+2020-01-27 20:44:57,920 [INFO :__main__] Shuffling...
+2020-01-27 20:45:15,091 [INFO :__main__] Epoch 74,   9882/  100/  134; reg_loss:  35.01; docs:    64; avg_reg_loss:   0.55;     17 s elapsed
+2020-01-27 20:45:21,287 [INFO :__main__] Train regression loss: 0.55398
+2020-01-27 20:45:21,288 [INFO :__main__] 
+2020-01-27 20:45:21,288 [INFO :__main__] Shuffling...
+2020-01-27 20:45:36,279 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:45:41,117 [WARNI:__main__] Set model to train mode
+2020-01-27 20:45:41,118 [INFO :__main__] (0.019469908375013365, 0.000486490698854245, (0.01851549382643782, 0.020424322923588912))
+2020-01-27 20:45:41,118 [INFO :__main__] Validation Score: 1.94699
+2020-01-27 20:45:42,186 [INFO :neusum.Optim] Bad_count: 0	Current lr: 0.001
+2020-01-27 20:45:42,186 [INFO :neusum.Optim] Best metric: 0.019469908375013365
+2020-01-27 20:45:45,740 [INFO :__main__] Epoch 75,  10016/  100/  134; reg_loss:  24.12; docs:    64; avg_reg_loss:   0.38;     24 s elapsed
+2020-01-27 20:45:52,166 [INFO :__main__] Train regression loss: 0.552267
+2020-01-27 20:45:52,167 [INFO :__main__] 
+2020-01-27 20:45:52,167 [INFO :__main__] Shuffling...
+2020-01-27 20:46:08,951 [INFO :__main__] Epoch 76,  10150/  100/  134; reg_loss:  42.65; docs:    64; avg_reg_loss:   0.67;     17 s elapsed
+2020-01-27 20:46:14,243 [INFO :__main__] Train regression loss: 0.54719
+2020-01-27 20:46:14,244 [INFO :__main__] 
+2020-01-27 20:46:14,244 [INFO :__main__] Shuffling...
+2020-01-27 20:46:29,626 [INFO :__main__] Epoch 77,  10284/  100/  134; reg_loss:  26.62; docs:    64; avg_reg_loss:   0.42;     15 s elapsed
+2020-01-27 20:46:34,893 [INFO :__main__] Train regression loss: 0.545242
+2020-01-27 20:46:34,893 [INFO :__main__] 
+2020-01-27 20:46:34,893 [INFO :__main__] Shuffling...
+2020-01-27 20:46:50,250 [INFO :__main__] Epoch 78,  10418/  100/  134; reg_loss:  31.25; docs:    64; avg_reg_loss:   0.49;     15 s elapsed
+2020-01-27 20:46:55,421 [INFO :__main__] Train regression loss: 0.53675
+2020-01-27 20:46:55,421 [INFO :__main__] 
+2020-01-27 20:46:55,421 [INFO :__main__] Shuffling...
+2020-01-27 20:47:10,701 [INFO :__main__] Epoch 79,  10552/  100/  134; reg_loss:  33.29; docs:    64; avg_reg_loss:   0.52;     15 s elapsed
+2020-01-27 20:47:15,858 [INFO :__main__] Train regression loss: 0.516296
+2020-01-27 20:47:15,859 [INFO :__main__] 
+2020-01-27 20:47:15,859 [INFO :__main__] Shuffling...
+2020-01-27 20:47:31,186 [INFO :__main__] Epoch 80,  10686/  100/  134; reg_loss:  31.65; docs:    64; avg_reg_loss:   0.49;     15 s elapsed
+2020-01-27 20:47:36,310 [INFO :__main__] Train regression loss: 0.525139
+2020-01-27 20:47:36,311 [INFO :__main__] 
+2020-01-27 20:47:36,311 [INFO :__main__] Shuffling...
+2020-01-27 20:47:51,521 [INFO :__main__] Epoch 81,  10820/  100/  134; reg_loss:  33.03; docs:    64; avg_reg_loss:   0.52;     15 s elapsed
+2020-01-27 20:47:56,811 [INFO :__main__] Train regression loss: 0.517812
+2020-01-27 20:47:56,811 [INFO :__main__] 
+2020-01-27 20:47:56,811 [INFO :__main__] Shuffling...
+2020-01-27 20:48:12,212 [INFO :__main__] Epoch 82,  10954/  100/  134; reg_loss:  23.12; docs:    64; avg_reg_loss:   0.36;     15 s elapsed
+2020-01-27 20:48:17,367 [INFO :__main__] Train regression loss: 0.527953
+2020-01-27 20:48:17,368 [INFO :__main__] 
+2020-01-27 20:48:17,368 [INFO :__main__] Shuffling...
+2020-01-27 20:48:19,075 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:48:23,219 [WARNI:__main__] Set model to train mode
+2020-01-27 20:48:23,219 [INFO :__main__] (0.019022075927145356, 0.00047574793877179603, (0.01808873690280633, 0.019955414951484382))
+2020-01-27 20:48:23,220 [INFO :__main__] Validation Score: 1.90221
+2020-01-27 20:48:23,220 [INFO :neusum.Optim] Bad_count: 1	Current lr: 0.001
+2020-01-27 20:48:23,220 [INFO :neusum.Optim] Best metric: 0.019469908375013365
+2020-01-27 20:48:37,072 [INFO :__main__] Epoch 83,  11088/  100/  134; reg_loss:  22.05; docs:    64; avg_reg_loss:   0.34;     20 s elapsed
+2020-01-27 20:48:42,251 [INFO :__main__] Train regression loss: 0.528417
+2020-01-27 20:48:42,251 [INFO :__main__] 
+2020-01-27 20:48:42,252 [INFO :__main__] Shuffling...
+2020-01-27 20:48:57,569 [INFO :__main__] Epoch 84,  11222/  100/  134; reg_loss:  26.28; docs:    64; avg_reg_loss:   0.41;     15 s elapsed
+2020-01-27 20:49:02,793 [INFO :__main__] Train regression loss: 0.516101
+2020-01-27 20:49:02,794 [INFO :__main__] 
+2020-01-27 20:49:02,794 [INFO :__main__] Shuffling...
+2020-01-27 20:49:17,956 [INFO :__main__] Epoch 85,  11356/  100/  134; reg_loss:  26.27; docs:    64; avg_reg_loss:   0.41;     15 s elapsed
+2020-01-27 20:49:23,185 [INFO :__main__] Train regression loss: 0.520945
+2020-01-27 20:49:23,186 [INFO :__main__] 
+2020-01-27 20:49:23,186 [INFO :__main__] Shuffling...
+2020-01-27 20:49:38,535 [INFO :__main__] Epoch 86,  11490/  100/  134; reg_loss:  40.63; docs:    64; avg_reg_loss:   0.63;     15 s elapsed
+2020-01-27 20:49:43,595 [INFO :__main__] Train regression loss: 0.502029
+2020-01-27 20:49:43,596 [INFO :__main__] 
+2020-01-27 20:49:43,596 [INFO :__main__] Shuffling...
+2020-01-27 20:49:58,776 [INFO :__main__] Epoch 87,  11624/  100/  134; reg_loss:  46.26; docs:    64; avg_reg_loss:   0.72;     15 s elapsed
+2020-01-27 20:50:04,063 [INFO :__main__] Train regression loss: 0.502254
+2020-01-27 20:50:04,064 [INFO :__main__] 
+2020-01-27 20:50:04,064 [INFO :__main__] Shuffling...
+2020-01-27 20:50:19,400 [INFO :__main__] Epoch 88,  11758/  100/  134; reg_loss:  15.86; docs:    64; avg_reg_loss:   0.25;     15 s elapsed
+2020-01-27 20:50:24,603 [INFO :__main__] Train regression loss: 0.498578
+2020-01-27 20:50:24,603 [INFO :__main__] 
+2020-01-27 20:50:24,603 [INFO :__main__] Shuffling...
+2020-01-27 20:50:39,981 [INFO :__main__] Epoch 89,  11892/  100/  134; reg_loss:  21.11; docs:    64; avg_reg_loss:   0.33;     15 s elapsed
+2020-01-27 20:50:45,272 [INFO :__main__] Train regression loss: 0.487965
+2020-01-27 20:50:45,272 [INFO :__main__] 
+2020-01-27 20:50:45,273 [INFO :__main__] Shuffling...
+2020-01-27 20:50:56,590 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:51:00,900 [WARNI:__main__] Set model to train mode
+2020-01-27 20:51:00,900 [INFO :__main__] (0.01920630519174929, 0.00046493220445724957, (0.018294184855059674, 0.020118425528438906))
+2020-01-27 20:51:00,901 [INFO :__main__] Validation Score: 1.92063
+2020-01-27 20:51:00,901 [INFO :neusum.Optim] Bad_count: 2	Current lr: 0.001
+2020-01-27 20:51:00,901 [INFO :neusum.Optim] Best metric: 0.019469908375013365
+2020-01-27 20:51:05,051 [INFO :__main__] Epoch 90,  12026/  100/  134; reg_loss:  32.08; docs:    64; avg_reg_loss:   0.50;     20 s elapsed
+2020-01-27 20:51:10,314 [INFO :__main__] Train regression loss: 0.489746
+2020-01-27 20:51:10,315 [INFO :__main__] 
+2020-01-27 20:51:10,315 [INFO :__main__] Shuffling...
+2020-01-27 20:51:26,671 [INFO :__main__] Epoch 91,  12160/  100/  134; reg_loss:  33.70; docs:    64; avg_reg_loss:   0.53;     16 s elapsed
+2020-01-27 20:51:32,414 [INFO :__main__] Train regression loss: 0.492282
+2020-01-27 20:51:32,415 [INFO :__main__] 
+2020-01-27 20:51:32,415 [INFO :__main__] Shuffling...
+2020-01-27 20:51:51,806 [INFO :__main__] Epoch 92,  12294/  100/  134; reg_loss:  38.00; docs:    64; avg_reg_loss:   0.59;     19 s elapsed
+2020-01-27 20:51:58,015 [INFO :__main__] Train regression loss: 0.485729
+2020-01-27 20:51:58,016 [INFO :__main__] 
+2020-01-27 20:51:58,016 [INFO :__main__] Shuffling...
+2020-01-27 20:52:15,028 [INFO :__main__] Epoch 93,  12428/  100/  134; reg_loss:  26.09; docs:    64; avg_reg_loss:   0.41;     17 s elapsed
+2020-01-27 20:52:20,889 [INFO :__main__] Train regression loss: 0.482564
+2020-01-27 20:52:20,890 [INFO :__main__] 
+2020-01-27 20:52:20,890 [INFO :__main__] Shuffling...
+2020-01-27 20:52:37,994 [INFO :__main__] Epoch 94,  12562/  100/  134; reg_loss:  27.15; docs:    64; avg_reg_loss:   0.42;     17 s elapsed
+2020-01-27 20:52:45,106 [INFO :__main__] Train regression loss: 0.47354
+2020-01-27 20:52:45,107 [INFO :__main__] 
+2020-01-27 20:52:45,107 [INFO :__main__] Shuffling...
+2020-01-27 20:53:04,284 [INFO :__main__] Epoch 95,  12696/  100/  134; reg_loss:  37.52; docs:    64; avg_reg_loss:   0.59;     19 s elapsed
+2020-01-27 20:53:11,407 [INFO :__main__] Train regression loss: 0.475404
+2020-01-27 20:53:11,408 [INFO :__main__] 
+2020-01-27 20:53:11,408 [INFO :__main__] Shuffling...
+2020-01-27 20:53:27,021 [INFO :__main__] Epoch 96,  12830/  100/  134; reg_loss:  17.08; docs:    64; avg_reg_loss:   0.27;     16 s elapsed
+2020-01-27 20:53:32,177 [INFO :__main__] Train regression loss: 0.482167
+2020-01-27 20:53:32,178 [INFO :__main__] 
+2020-01-27 20:53:32,178 [INFO :__main__] Shuffling...
+2020-01-27 20:53:47,426 [INFO :__main__] Epoch 97,  12964/  100/  134; reg_loss:  23.70; docs:    64; avg_reg_loss:   0.37;     15 s elapsed
+2020-01-27 20:53:52,710 [INFO :__main__] Train regression loss: 0.470028
+2020-01-27 20:53:52,710 [INFO :__main__] 
+2020-01-27 20:53:52,710 [INFO :__main__] Shuffling...
+2020-01-27 20:53:52,873 [WARNI:__main__] Set model to eval mode
+2020-01-27 20:53:57,000 [WARNI:__main__] Set model to train mode
+2020-01-27 20:53:57,001 [INFO :__main__] (0.01930636670671406, 0.000473977278869958, (0.01837650142519247, 0.02023623198823565))
+2020-01-27 20:53:57,001 [INFO :__main__] Validation Score: 1.93064
+2020-01-27 20:53:57,002 [INFO :neusum.Optim] Bad_count: 3	Current lr: 0.001
+2020-01-27 20:53:57,002 [INFO :neusum.Optim] Best metric: 0.019469908375013365
+2020-01-27 20:54:12,054 [INFO :__main__] Epoch 98,  13098/  100/  134; reg_loss:  44.96; docs:    64; avg_reg_loss:   0.70;     19 s elapsed
+2020-01-27 20:54:17,403 [INFO :__main__] Train regression loss: 0.465656
+2020-01-27 20:54:17,404 [INFO :__main__] 
+2020-01-27 20:54:17,404 [INFO :__main__] Shuffling...
+2020-01-27 20:54:32,784 [INFO :__main__] Epoch 99,  13232/  100/  134; reg_loss:  42.46; docs:    64; avg_reg_loss:   0.66;     15 s elapsed
+2020-01-27 20:54:37,885 [INFO :__main__] Train regression loss: 0.464223
+2020-01-27 20:54:37,885 [INFO :__main__] 
+2020-01-27 20:54:37,885 [INFO :__main__] Shuffling...
+2020-01-27 20:54:53,146 [INFO :__main__] Epoch 100,  13366/  100/  134; reg_loss:  25.12; docs:    64; avg_reg_loss:   0.39;     15 s elapsed
+2020-01-27 20:54:58,322 [INFO :__main__] Train regression loss: 0.459787
